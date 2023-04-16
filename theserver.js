@@ -15,7 +15,7 @@ const girlList = require("./girls.json")
 function checkNewDate() {
     year = date.getUTCFullYear()
     month = date.getUTCMonth() + 1
-    day = date.getUTCDate()
+    day = date.getUTCDate() + 99
     dateString = year + " " + month + " " + day
     seed = seedrandom(dateString)
 }
