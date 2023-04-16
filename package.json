@@ -1,0 +1,27 @@
+{
+  "name": "noobultimaback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon theserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n00bUltima/noobultimaback.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n00bUltima/noobultimaback/issues"
+  },
+  "homepage": "https://github.com/n00bUltima/noobultimaback#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
