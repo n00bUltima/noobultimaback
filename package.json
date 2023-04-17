@@ -19,6 +19,7 @@
   "homepage": "https://github.com/n00bUltima/noobultimaback#readme",
   "dependencies": {
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "pastebin-api": "^5.1.6",
     "seedrandom": "^3.0.5"

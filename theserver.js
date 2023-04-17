@@ -1,5 +1,6 @@
 const express = require("express")
 const seedrandom = require("seedrandom")
+const cors = require("cors")
 
 let date = new Date()
 let year = date.getUTCFullYear()
@@ -12,9 +13,11 @@ const PasteClient = require("pastebin-api").default;
 const client = new PasteClient("HeNM5_fdogmTaVeWrpF7Cl7KOy8SQcbq");
 let seed = seedrandom(dateString)
 let seedNumber = seed()
+let token
 
-
-
+app.use(cors({
+    origin: '*'
+}))
 
 function checkNewDate() {
     year = date.getUTCFullYear()
@@ -24,21 +27,27 @@ function checkNewDate() {
     seed = seedrandom(dateString)
 }
 
-app.get('/girl', async (req, res) => {
-    const token = await client.login({ name: "n00bUltima", password: "Skolan213141" });
-    const girlList = await client.getRawPasteByKey({
-        pasteKey: "4AhEMN7p",
-        userKey: token,
-      });
-    const json = JSON.parse(girlList)
-    checkNewDate()
-    console.log(dateString)
-    if (seedNumber !== seed()) {
-        seedNumber = seed()
+async function login() {
+    if (token === undefined) {
+        token = await client.login({ name: "n00bUltima", password: "Skolan213141" });
     }
-    let girlIndex = Math.floor(seedNumber * json.girls.length)
-    const girl = json.girls[girlIndex]
-    res.status(200).send(girl)
+}
+
+app.get('/girl', async (req, res) => {
+    await login().then(async function() {
+        const girlList = await client.getRawPasteByKey({
+            pasteKey: "4AhEMN7p",
+            userKey: token,
+          });
+        const json = JSON.parse(girlList)
+        checkNewDate()
+        if (seedNumber !== seed()) {
+            seedNumber = seed()
+        }
+        let girlIndex = Math.floor(seedNumber * json.girls.length)
+        const girl = json.girls[girlIndex]
+        res.status(200).send(girl)
+    })
 })
 
 app.listen(8008)
