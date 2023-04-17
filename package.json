@@ -20,6 +20,7 @@
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.18.2",
+    "pastebin-api": "^5.1.6",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
