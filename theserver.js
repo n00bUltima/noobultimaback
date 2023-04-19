@@ -27,9 +27,9 @@ app.use(cors({
 }))
 
 function checkNewDate() {
-    year = date.getUTCFullYear()
-    month = date.getUTCMonth() + 1
-    day = date.getUTCDate()
+    year = date.getFullYear()
+    month = date.getMonth() + 1
+    day = date.getDate()
     dateString = year + " " + month + " " + day
     seed = seedrandom(dateString)
 }
