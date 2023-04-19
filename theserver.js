@@ -4,12 +4,14 @@ const cors = require("cors")
 const axios = require('axios')
 const { default: DeviantArt } = require("deviantart.ts")
 const PixivApi = require('pixiv-api-client');
+const pixivImg = require('pixiv-img');
 
 let date = new Date()
 let year = date.getUTCFullYear()
 let month = date.getUTCMonth() + 1
 let day = date.getUTCDate()
 let dateString = year + " " + month + " " + day
+let pixivIcon
 
 const app = express()
 const PasteClient = require("pastebin-api").default;
@@ -55,6 +57,8 @@ app.get("/girl", async (req, res) => {
         })
 })
 
+app.get("/picon", async (req, res) => { res.sendFile("./" + pixivIcon, { root: '.' })})
+
 app.get("/socials", async (req, res) => {
     let socials = []
     await pixiv.refreshAccessToken("D7J5c1jYk8sD8dA2zivTlpdHHJ5jAbxEgFXnBBmNXf0").catch(function (a) {
@@ -67,11 +71,16 @@ app.get("/socials", async (req, res) => {
     const devLogin = await DeviantArt.login("21374", "6a744a9fde1701e3c9f90d0be0a4168a")
     const token = devLogin.data.accessToken
 
-    await pixiv.userDetail("21611220").then((user) => {
-        socials.push(user.user)
+    await pixiv.userDetail("21611220").then((u) => {
+        pixivImg(u.user.profile_image_urls.medium).then(output => {
+            pixivIcon = output
+        });
+        socials.push(u.user)
     }).catch(function (a) {
         console.log(a)
     });
+
+
 
     let deviantR = await axios.get("https://www.deviantart.com/api/v1/oauth2/user/profile/n00bUltima", {
         headers: {

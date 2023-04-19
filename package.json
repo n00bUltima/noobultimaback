@@ -26,6 +26,7 @@
     "pastebin-api": "^5.1.6",
     "pixiv-api-client": "^0.25.0",
     "pixiv-app-api": "^1.2.1",
+    "pixiv-img": "^1.0.0",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
