@@ -100,6 +100,6 @@ app.get("/socials", async (req, res) => {
     res.status(200).send(socials)
 })
 
-app.listen(8008)
+app.listen(443)
 
 
