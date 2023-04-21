@@ -29,7 +29,7 @@ app.use(cors({
 }))
 
 let options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkey.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkeyaaaaa.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/fullchain.pem'),
   };
 
