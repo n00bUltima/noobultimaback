@@ -30,8 +30,8 @@ app.use(cors({
 }))
 
 let options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/fullchain.pem'),
+    key: fs.readFileSync('./privkey.pem'),
+    cert: fs.readFileSync('./fullchain.pem'),
   };
 
 function checkNewDate() {
