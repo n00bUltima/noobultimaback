@@ -107,5 +107,5 @@ app.get("/socials", async (req, res) => {
     res.status(200).send(socials)
 })
 
-https.createServer(options, app).listen(8008)
+https.createServer(options, app).listen(443)
 
