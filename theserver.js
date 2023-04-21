@@ -29,10 +29,10 @@ app.use(cors({
     origin: '*'
 }))
 
-// let options = {
-//     key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkey.pem'),
-//     cert: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/fullchain.pem'),
-//   };
+let options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/fullchain.pem'),
+  };
 
 function checkNewDate() {
     year = date.getFullYear()
