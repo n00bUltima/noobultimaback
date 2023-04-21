@@ -5,7 +5,9 @@ const axios = require('axios')
 const { default: DeviantArt } = require("deviantart.ts")
 const PixivApi = require('pixiv-api-client');
 const pixivImg = require('pixiv-img');
-
+const https = require('https')
+const http = require('http')
+const fs = require('fs')
 
 let date = new Date()
 let year = date.getUTCFullYear()
@@ -27,6 +29,10 @@ app.use(cors({
     origin: '*'
 }))
 
+// let options = {
+//     key: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/privkey.pem'),
+//     cert: fs.readFileSync('/etc/letsencrypt/live/n00bultimaback.de/fullchain.pem'),
+//   };
 
 function checkNewDate() {
     year = date.getFullYear()
@@ -102,5 +108,6 @@ app.get("/socials", async (req, res) => {
     res.status(200).send(socials)
 })
 
-app.listen(8008)
+http.createServer(app).listen(8005)
+// https.createServer(options, app).listen(8008)
 
