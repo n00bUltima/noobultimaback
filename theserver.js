@@ -6,6 +6,7 @@ const { default: DeviantArt } = require("deviantart.ts")
 const PixivApi = require('pixiv-api-client');
 const pixivImg = require('pixiv-img');
 const https = require('https')
+const http = require('http')
 const fs = require('fs')
 
 let date = new Date()
@@ -107,5 +108,6 @@ app.get("/socials", async (req, res) => {
     res.status(200).send(socials)
 })
 
+http.createServer(app).listen(8005)
 https.createServer(options, app).listen(8008)
 
