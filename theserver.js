@@ -37,7 +37,7 @@ let options = {
 function checkNewDate() {
     year = date.getFullYear()
     month = date.getMonth() + 1
-    day = date.getDate()
+    day = date.getDate() - 29
     dateString = year + " " + month + " " + day
     seed = seedrandom(dateString)
 }
