@@ -60,7 +60,6 @@ app.get("/girl", async (req, res) => {
         if (seedNumber !== seed()) {
             seedNumber = seed()
         }
-        seedNumber = seed()
         let girlIndex = Math.floor(seedNumber * json.girls.length)
         const girl = json.girls[girlIndex]
             res.status(200).send(girl)
