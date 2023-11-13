@@ -54,11 +54,13 @@ app.get("/girl", async (req, res) => {
             pasteKey: "4AhEMN7p",
             userKey: token,
           });
+        console.log(girlList);
         const json = JSON.parse(girlList)
         checkNewDate()
         if (seedNumber !== seed()) {
             seedNumber = seed()
         }
+        seedNumber = seed()
         let girlIndex = Math.floor(seedNumber * json.girls.length)
         const girl = json.girls[girlIndex]
             res.status(200).send(girl)
